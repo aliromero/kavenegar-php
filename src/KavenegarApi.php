@@ -31,7 +31,7 @@ class KavenegarApi
         return sprintf(self::APIPATH,$this->insecure==true ? "http": "https", $this->apiKey, $base, $method);
     }
 	
-	protected function execute($url, $data = null)
+	protected function execute($url, $data = null,$proxy_data = null)
     {        
         $headers       = array(
             'Accept: application/json',
@@ -50,6 +50,11 @@ class KavenegarApi
         curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($handle, CURLOPT_POST, true);
         curl_setopt($handle, CURLOPT_POSTFIELDS, $fields_string);
+        if($proxy_data != null){
+            curl_setopt($handle, CURLOPT_PROXY, $proxy_data['proxy']);
+            curl_setopt($handle, CURLOPT_PROXYUSERPWD, $proxy_data['proxy_auth']);
+        }
+
         
         $response     = curl_exec($handle);
         $code         = curl_getinfo($handle, CURLINFO_HTTP_CODE);
