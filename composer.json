@@ -1,23 +1,21 @@
 {
-    "name": "aliromero/kavengar",
+    "name": "aliromero/kavengear",
     "type": "library",
     "description": "A PHP wrapper for Kavenegar's API",
     "keywords": ["kavenegar", "sms", "api"],
-    "homepage": "http://github.com/Kavenegar/kavenegar-php",
     "license": "MIT",
     "authors": [
         {
-            "name": "Kavenegar API Team",
-            "email": "support@kavenegar.com"
+            "name": "ali romero",
+            "email": "ali.rom3ro@gmail.com"
         }
     ],
     "require": {
-        "php": ">=5.4.0"
+        "php": ">=8.0.0"
     },
     "autoload": {
         "psr-4": {
             "Kavenegar\\": "src/"
         }
-    },
-    "minimum-stability" : "dev"
+    }
 }
